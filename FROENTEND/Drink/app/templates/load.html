@@ -1,0 +1,44 @@
+{% extends "uhome.html" %}
+
+{% block app %}
+
+<div class="card text-bg-dark">
+    <img src="/static/assets/img/p2.png" class="card-img" alt="...">
+    <div class="card-img-overlay">
+
+        <section class="vh-100" id="myimage">
+
+            <form action="{% url 'load' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div>
+                    <div class="d-flex flex-column justify-content-center align-items-center" style="padding-top: 231px;">
+            
+            
+                        <label style="color:White;background-color: rgba(0, 0, 0, 0.774);"><h1>CHOOSE EXCEL FILES</h1></label><br>
+                        <input style="color:White;width:220px;background-color: rgba(0, 0, 0, 0.774);" type="file" name="file" placeholder="SELECT CSV FILES"
+                            required /><br><br>
+            
+                        <input type="submit" value="submit" class="btn btn-info"><br><br><br>
+                        <div>
+                            {% for message in messages %}
+                            <center>
+                                <h4 style="color: rgb(0, 0, 0);background-color: rgba(255, 255, 255, 0.774);font-size: 40px;">{{message}}</h4>
+                            </center>
+                            {% endfor %}
+                        </div><br><br><br><br><br><br><br><br>
+            
+                    </div>
+            </form>
+           
+        </section>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}

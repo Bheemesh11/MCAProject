@@ -1,0 +1,102 @@
+{% extends "uhome.html" %}
+
+{% block app %}
+
+<div class="card text-bg-dark">
+    <img src="/static/assets/img/p4.png" class="card-img" alt="...">
+    <div class="card-img-overlay">
+
+        <section class="vh-100" id="myimage">
+
+            <form action="{% url 'prediction' %}" method="post">
+                {% csrf_token %}
+                    <div class="about_text" style="padding-top: 50px;">
+                      <style >
+                          table,
+                          td {
+                              padding: 10px;
+                              border: 1px solid rgb(1, 0, 0);
+                              border-collapse: collapse;
+                          }
+                      </style>
+                      <center style="    padding-top: 20px;">
+                          <table style="margin-left: 4px;color:red(1, 0, 0);"><b>
+                              <h1>
+                                  <tr>
+                                    {%for r in Inp%}
+                                    <tr>
+                                      {%for c in r%}
+                                      <td style="color:rgb(0, 0, 0); border-width: 20px; background-color: antiquewhite;"><b>{{c}}</b></td>
+                                      {%endfor%} 
+                                      
+                                    {%endfor%}
+                                  </tr>
+                                   </h1>
+                                   <tr>
+                                    {%for r in Inp%}
+                                    <tr>
+                                      {% comment %} {%for c in r%}
+                                      <td style="color:rgb(0, 0, 0); border-width: 20px; background-color: antiquewhite;"><b>{{c}}</b></td>
+                                      {%endfor%} {% endcomment %}
+                                      {%for i in Lee%}
+                                      <td style="color:rgb(0, 0, 0); background-color: antiquewhite;">{{ i }}</td>
+
+                                    {%endfor%}
+                                    {%endfor%}
+                                  </tr>
+                                   {% comment %} {%for r in Lee%}
+                                       {%for j in r%}
+                                       <td style="color:rgb(0, 0, 0); background-color: antiquewhite;">{{ j }}</td>
+                                       {%endfor%} 
+                                 
+                                   {%endfor%} {% endcomment %}
+                              </b> </table>
+                      </center>
+                 <center>
+                  <table>
+                    <tr>
+                <center style="font-size: 50px; color:rgb(18, 19, 19);">{{msg|safe}}</center><br><br>
+                <center style=><input type="text" name="EF" placeholder="Enter The EF" style="height: 50px;width: 250px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                    <input type="text" name="Systolic blood pressure" placeholder="Enter The Systolic blood pressure" style="height: 50px;width: 250px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                    <input type="text" name="gendera" placeholder="Enter The gendera" style="height: 50px;width: 250px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                    <input type="text" name="Blood sodium" placeholder="Enter The Blood sodium" style="height: 50px;width: 250px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);"><br>
+                    <input type="text" name="PCO2" placeholder="Enter The PCO2" style="height: 50px;width: 250px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                    <input type="text" name="Chloride" placeholder="Enter The Chloride" style="height: 50px;width: 250px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                    <input type="text" name="MCH" placeholder="Enter The MCH" style="height: 50px;width: 250px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                    <input type="text" name="Bicarbonate" placeholder="Enter The Bicarbonate" style="height: 50px;width: 250px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);"><br>
+                    <input type="text" name="MCHC" placeholder="Enter The MCHC" style="height: 50px;width: 250px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                    <input type="text" name="MCV" placeholder="Enter The MCV" style="height: 50px;width: 250px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                    <input type="text" name="Neutrophils" placeholder="Enter The Neutrophils" style="height: 50px;width: 250px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                    <input type="text" name="BMI" placeholder="Enter The BMI" style="height: 50px;width: 250px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);"><br>
+                    <input type="text" name="age" placeholder="Enter The age" style="height: 50px;width: 250px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                    <input type="text" name="COPD" placeholder="Enter The COPD" style="height: 50px;width: 250px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                    <input type="text" name="temperature" placeholder="Enter The temperature" style="height: 50px;width: 250px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                    <input type="text" name="Urine output" placeholder="Enter The Urine output" style="height: 50px;width: 250px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);"><br>
+                    <input type="text" name="Platelets" placeholder="Enter The Platelets" style="height: 50px;width: 250px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                    
+
+                    
+                </center>
+                <center>
+                    <br><br><br><br>
+                    <input class="btn btn-danger" type="submit" value="Submit" style="margin-left: 100px;margin-top: 9px; width:500px; height:50px">
+                </center>
+            </form>
+          
+
+
+
+
+
+        </section>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}

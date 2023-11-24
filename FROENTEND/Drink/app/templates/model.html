@@ -1,0 +1,52 @@
+{% extends "uhome.html" %}
+
+{% block app %}
+
+<div class="card text-bg-dark">
+    <img src="/static/assets/img/p5.png" class="card-img" alt="...">
+    <div class="card-img-overlay">
+
+        <section class="vh-100" id="myimage">
+
+            <form action="{% url 'model' %}" method="post">
+                {% csrf_token %}
+                
+                <center> <label for="algo" style="color:rgb(13, 164, 33);padding-top: 300px;"><h3 style="background-color: black;">Select a Model:</h3></label>
+                  <select id="algo" name="algo">
+                    <option value="5">SELECT A ALGORITHM</option>
+                    <option value="0">RandomForestClassfier</option>
+                    <option value="1">KNeighborsClassifier</option>
+                    <option value="2">LinearDiscriminantAnalysis</option>
+                    <option value="3">MLPClassifier</option>
+                    <option value="4">NeuralNetwork</option>
+                    
+                    <!-- <option value="3">CNN</option> -->
+                    
+          
+                  </select>
+                  <br><br><br>
+                  <input type="submit"><br><br><br>
+
+                  <center><b style="color: rgb(13, 164, 33);font-size: 50px;background-color: white;">{{msg}}</b></center><br><br>
+                </center>
+                <!-- <div>
+                    {% for message in messages %}
+                   <center><h4>{{message}}</h4></center>
+                    {% endfor %}
+              </div> -->
+              </form>
+
+           
+           
+        </section>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}

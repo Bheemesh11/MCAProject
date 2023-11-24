@@ -1,0 +1,44 @@
+{% extends "uhome.html" %}
+
+{% block app %}
+
+<div class="card text-bg-dark">
+    <img src="/static/assets/img/p2.png" class="card-img" alt="...">
+    <div class="card-img-overlay">
+
+        <section class="vh-100" id="myimage">
+
+          <center>  <form action="{% url 'preprocessing' %}" method="post" enctype="multipart/form-data"><br><br>
+                {% csrf_token %}
+                <label>
+                  <h6 style="color:rgb(180, 15, 15);font-size:35px;"><b>Enter Split Size:</b></h6>
+                </label>&nbsp&nbsp&nbsp&nbsp
+                <input type="text" placeholder="Test Data Size" name="split" required="required"
+                  style="width: 350px;"><br><br><br><br>
+      
+      
+      
+                <input type="submit" value="submit" class="btn btn-info"><br><br><br>
+                <div>
+                  {% if messages %}
+                  <ul class="messages">
+                    {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}" {% endif %} style="background-color: rgb(10, 209, 244);font-size: 50px;"><b>{{ message }}</b></li>
+                      {% endfor %}
+                  </ul>
+                  {% endif %}
+                </div>
+              </form></center>
+           
+        </section>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}
